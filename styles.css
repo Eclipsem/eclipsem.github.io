@@ -4,7 +4,7 @@ div.main {
 }
 
 div {
-  background-image: url('https://eclipsem.github.io/resources/home/homebackground.jpg');
+  background-image: url('resources/home/homebackground.jpg');
   width: 100%;
   height: auto;
 }
