@@ -7,3 +7,9 @@ div.style {
     width: 100%;
     height: auto;
 }
+
+div {
+  background-image: url('resources/home/homebackground.jpg');
+  width: 100%;
+  height: auto;
+}
