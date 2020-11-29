@@ -5,6 +5,6 @@ div.main {
 
 div {
   background-image: url('resources/home/homebackground.jpg');
-  width: 100%;
+  width: auto;
   height: auto;
 }
