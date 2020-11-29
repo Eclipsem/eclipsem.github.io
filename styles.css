@@ -2,3 +2,8 @@ div.main {
     text-align: center;
     font-family: Courier New, Courier, monospace;
 }
+
+div.homeimg {
+    width: 100%;
+    height: auto;
+}
