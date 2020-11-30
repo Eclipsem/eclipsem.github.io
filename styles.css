@@ -3,6 +3,9 @@ div.main {
     font-family: Courier New, Courier, monospace;
 }
 
+/* this dont work
 div {
   background-image: url('resources/home/homebackground.jpg');
 }
+*/
+
