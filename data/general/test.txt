@@ -1,1 +1,1 @@
-test
+http.fetch is working
