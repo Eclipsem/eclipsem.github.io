@@ -2,11 +2,6 @@ div.main {
     text-align: center;
     font-family: Courier New, Courier, monospace;
 }
-/* fix 404 page css not working */
-div.error {
-    text-align: center;
-    font-family: Courier New, Courier, monospace;
-}
 
 /* this dont work - fix later?
 div {
