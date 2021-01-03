@@ -1,11 +1,1 @@
-div.main {
-    text-align: center;
-    font-family: Courier New, Courier, monospace;
-}
-
-/* this dont work - fix later?
-div {
-  background-image: url('resources/home/homebackground.jpg');
-}
-*/
-
+body {background-color: rgb(60, 53, 46);}
