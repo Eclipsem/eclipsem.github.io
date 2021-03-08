@@ -1,1 +1,5 @@
 body {background-color: rgb(38,38,38);}
+div.body{
+    text-align: center;
+    font-family: Courier New, Courier, monospace;
+}
