@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <title>Staude Admin</title>
