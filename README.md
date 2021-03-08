@@ -3,8 +3,7 @@ Hello.
 
 This is my personal website. 
 
-You can visit through eclipsem.github.io or staude.ml. Please note that there is no SSL since GitHub pages
-does not support SSL.
+You can visit through eclipsem.github.io or staude.ml. 
 
 # Contact
 
