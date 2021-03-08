@@ -1,4 +1,4 @@
-# thanks stack overflow.
+
 <html>
     <head>
         <title>Staude Admin</title>
