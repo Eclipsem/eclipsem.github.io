@@ -1,7 +1,7 @@
 # Intro
 Hello.
 
-This is my personal website. 
+Moved to kilos.cc
 
 # Contact
 
