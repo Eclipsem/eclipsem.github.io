@@ -11,5 +11,5 @@ div.bob {
 
 @font-face {
 	font-family: 'IBMPlexSansCondensed';
-	     url('IBMPlexSansCondensed-Light.ttf')  format('truetype'), 
+	     url('resources/font/IBMPlexSansCondensed-Light.ttf')  format('truetype'), 
 	}
