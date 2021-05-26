@@ -11,5 +11,10 @@ div.bob {
 
 @font-face {
 	font-family: 'IBMPlexSansCondensed';
-	     url('font/IBMPlexSansCondensed-Light.ttf')  format('truetype'), 
+        src: url('IBMPlexSansCondensed-Light.eot'); 
+	src: url('IBMPlexSansCondensed-Light.eot?#iefix') format('embedded-opentype'), 
+	     url('IBMPlexSansCondensed-Light.woff') format('woff'), 
+	     url('IBMPlexSansCondensed-Light.ttf')  format('truetype'), 
+	     url('IBMPlexSansCondensed-Light.svg#svgFontName') format('svg'); 
+	
 	}
