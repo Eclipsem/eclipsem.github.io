@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(38, 38, 38);
+    color: white;
+}
+
+div.bob {
+    text-align: center;
+    font-family: IBMPlexSansCondensed;
+    color: white;
+}
+
+@font-face {
+	font-family: 'IBMPlexSansCondensed';
+	     url('font/IBMPlexSansCondensed-Light.ttf')  format('truetype'), 
+	}
