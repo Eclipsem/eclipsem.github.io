@@ -1,0 +1,55 @@
+import( "Main.msg" );
+//import( "Helpers.flow" );
+import( "Helpers.msg" );
+
+void OpenMM() {
+  int MainMenuOptions = SEL_GENERIC_NOT_HELP(-1 , Main);
+  
+  switch(MainMenuOptions) {
+	  case 0:
+	     PLOF();
+	     break;
+	  case 1:
+	     WROF();
+	     break;
+	  case 2:
+		 SUB_Call_GroupChat();
+	     break;
+	  case 3:
+	    MISCOF();
+	     break;
+  }
+}
+
+void PLOF() {
+ int PlayerOptions = SEL_GENERIC_NOT_HELP(-1, PLO);
+ 
+  switch(PlayerOptions) {
+      case 0:
+	     break;
+	  case 1:
+	     break;
+      }
+}
+
+void WROF() {
+ int WorldOptions = SEL_GENERIC_NOT_HELP(-1, WRO);
+ 
+ switch(WorldOptions) {
+	  case 0:
+	     break;
+	  case 1:
+	     break;
+      }
+}
+
+void MISCOF() {
+ int MiscOptions = SEL_GENERIC_NOT_HELP(-1, MISC);
+ 
+ switch(MiscOptions) {
+	  case 0:
+	     break;
+	  case 1:
+	     break;
+     }
+}

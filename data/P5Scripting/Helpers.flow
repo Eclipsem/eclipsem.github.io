@@ -1,0 +1,33 @@
+import( "Main.flow" )
+import( "Helpers.msg" )
+
+
+//selectors (to pick an id) 
+//these are all basically the same execpt for catergories lmfao
+
+//gap (animation)
+//void GAPIDSelector() {
+//  int NUPBegin = SEL_GENERIC_NOT_HELP(-1 , NUPBeginM);
+
+
+//field 
+void FIDSelector() {
+ int NUPBegin = SEL_GENERIC_NOT_HELP(-1 , NUPBeginF);
+ int NUP099FO = SEL_GENERIC_NOT_HELP(-1 , NUP099F);
+ int NUP100199FO = SEL_GENERIC_NOT_HELP(-1 NUP100199F);
+ int NUP200294FO = SEL_GENERIC_NOT_HELP(-1, NUP200294F);
+}
+
+//persona
+void PIDSelector();
+
+//skill
+void SKIDSelector()
+
+//battle
+void BIDSelector();
+
+//general
+void GSelector() {
+
+}
