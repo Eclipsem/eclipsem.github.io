@@ -6,7 +6,7 @@
     </div>
     <title>Kilo</title>
     <div class="text">
-   <p class="animate__animated animate__fadeInDown animate__delay-2s">A website made by a very bored person.</p>
+   <p id="greeting" class="animate__animated animate__fadeInDown animate__delay-2s">Placeholder.</p>
     </div>
     
     <div class="version">
@@ -96,3 +96,10 @@ body {
   100% {background-color: #F7330E;}
 }
 </style>
+  
+<script>
+const greetings = [ 'Greetings.', 'Hello.', 'Good day, huh?'];
+var showgreetings = greetings[Math.floor(Math.random()*greetings.length)];
+  
+document.getElementById("greeting").innerHTML = showgreetings;
+</script>
