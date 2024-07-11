@@ -4,9 +4,10 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden; 
     background-color: #2E2E2E; /* Greyish black background */
 }
 
 canvas {
-    border: 1px solid #FFFFFF; /* White border for better visibility */
+    border: 1px solid #FFFFFF; 
 }
