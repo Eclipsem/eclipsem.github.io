@@ -1,119 +1,13 @@
-<!-- please dont judge my div's im too lazy to figure out a system to selectively style each one -->
-<html>  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <body>
-    <div class="title">
-   <h1 class="animate__animated animate__fadeInDown"> </h1>
-    </div>
-    <title>Landing</title>
-    <div class="text">
-   <p id="greeting" class="animate__animated animate__fadeInDown animate__delay-1s">Something went wrong if you see this, Run, run very far.</p>
-    </div>
-    
-    <div class="version">
-   <p class="animate__animated animate__fadeInDown">0.0.2</p>
-    </div>
-    
- </body>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link rel="icon" href="resources/favicon.gif" type="image/gif" >
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-  
-<style>
-.title {
-position: absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-font-family: 'Poppins', sans-serif;
-font-size: 50px;
-}
-  
-.text {
-position: absolute;
-left: 50%;
-top: 56%;
-transform: translate(-50%, -50%);
-font-family: 'Poppins', sans-serif;
-font-size: 40px;
-}
-  
-.version {
-position: absolute;
-bottom: 0%;
-left: 50%;
-transform: translate(-50%, -50%);
-font-family: 'Poppins', sans-serif;
-font-size: 30px;
-}
-  
-.button {
-position: absolute;
-bottom: 80%;
-left: 50%;
-transform: translate(-50%, -50%);
-font-family: 'Poppins', sans-serif;
-font-size: 30px;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  animation-name: colorchange;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
-}
-
-@media only screen and (min-width: 601px) {
-  div.title {
-    font-size: 3vw;
-  }
-  
-  div.text {
-    font-size: 3vw;
-    top: 60%;
-  }
-  
-  div.version {
-    font-size: 2vw;
-  }
-  
-}
-
-
-@media only screen and (max-width: 600px) {
-  div.title {
-    font-size: 6vw;
-  }
-  
-  div.text {
-    font-size: 5vw;
-    top: 60%;
-  }
-  
-  div.version {
-    font-size: 4vw;
-  }
-}
-
-@keyframes colorchange {
-  0%   {background-color: #F7330E;}
-  25%  {background-color: yellow;}
-  50%  {background-color: #0080FF;}
-  75%  {background-color: #49fb35;}
-  100% {background-color: #F7330E;}
-}
-</style>
-  
-<script>
-const greetings = ['(505) 842-5662', 'Woah!', 'Barry (63)', 'Comeback tomorrow, and ill call you awesome', 'Attention all cryptobros! Invest in SHIROX and BOFA', 'bro the fruit is just doin dat', 'Guan Yu rolls worst joint ever, asked to leave imperial capital.', 'obama didnt close guatnomo bay, hope 2024', 'Dear Putin, send all ur nukes to Sarajevo, Bosnia.', 'Boom-Chakalaka', 'Cowabunga!', '213.87.122.121, dis u?', 'nice day in novosibirsk oblast, siberia, russian federation?'];
-var showgreetings = greetings[Math.floor(Math.random()*greetings.length)];
-  
-document.getElementById("greeting").innerHTML = showgreetings;
-</script>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script src="snake.js"></script>
+</body>
+</html>
