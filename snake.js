@@ -5,19 +5,18 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const box = Math.floor(canvas.width / 40); // Size of each box in the grid
-let snake = [];
-snake[0] = { x: 10 * box, y: 10 * box }; // Initial position of the snake
-
+let snake = [{ x: 10 * box, y: 10 * box }]; // Initial position of the snake
 let food = {
     x: Math.floor(Math.random() * (canvas.width / box)) * box,
     y: Math.floor(Math.random() * (canvas.height / box)) * box
 };
-
 let direction;
+let lastTime = 0;
+const snakeSpeed = 100; // The time (ms) between snake moves
 
 // Prevent default scrolling behavior
 window.addEventListener("keydown", function(event) {
-    if(["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "w", "a", "s", "d"].indexOf(event.key) > -1) {
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "w", "a", "s", "d"].indexOf(event.key) > -1) {
         event.preventDefault();
     }
 }, false);
@@ -46,49 +45,64 @@ function collision(newHead, array) {
     return false;
 }
 
+function drawSnake() {
+    ctx.beginPath();
+    ctx.moveTo(snake[0].x + box / 2, snake[0].y + box / 2);
+    for (let i = 1; i < snake.length; i++) {
+        ctx.lineTo(snake[i].x + box / 2, snake[i].y + box / 2);
+    }
+    ctx.lineCap = "round";
+    ctx.strokeStyle = "#FFFFFF";
+    ctx.lineWidth = box;
+    ctx.stroke();
+}
+
 function draw() {
     ctx.fillStyle = "#2E2E2E";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = "#FFFFFF"; // White body
-        ctx.fillRect(snake[i].x, snake[i].y, box, box);
-
-        ctx.strokeStyle = "#2E2E2E";
-        ctx.strokeRect(snake[i].x, snake[i].y, box, box);
-    }
+    drawSnake();
 
     ctx.fillStyle = "red";
     ctx.fillRect(food.x, food.y, box, box);
-
-    let snakeX = snake[0].x;
-    let snakeY = snake[0].y;
-
-    if (direction === "LEFT") snakeX -= box;
-    if (direction === "UP") snakeY -= box;
-    if (direction === "RIGHT") snakeX += box;
-    if (direction === "DOWN") snakeY += box;
-
-    if (snakeX === food.x && snakeY === food.y) {
-        food = {
-            x: Math.floor(Math.random() * (canvas.width / box)) * box,
-            y: Math.floor(Math.random() * (canvas.height / box)) * box
-        };
-    } else {
-        snake.pop();
-    }
-
-    let newHead = {
-        x: snakeX,
-        y: snakeY
-    };
-
-    if (snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
-        clearInterval(game);
-    }
-
-    snake.unshift(newHead);
 }
 
-let fps = 60; // Set FPS to 60 for smoother animation
-let game = setInterval(draw, 1000 / fps);
+function update(time = 0) {
+    const deltaTime = time - lastTime;
+    if (deltaTime > snakeSpeed) {
+        lastTime = time;
+
+        let snakeX = snake[0].x;
+        let snakeY = snake[0].y;
+
+        if (direction === "LEFT") snakeX -= box;
+        if (direction === "UP") snakeY -= box;
+        if (direction === "RIGHT") snakeX += box;
+        if (direction === "DOWN") snakeY += box;
+
+        if (snakeX === food.x && snakeY === food.y) {
+            food = {
+                x: Math.floor(Math.random() * (canvas.width / box)) * box,
+                y: Math.floor(Math.random() * (canvas.height / box)) * box
+            };
+        } else {
+            snake.pop();
+        }
+
+        let newHead = {
+            x: snakeX,
+            y: snakeY
+        };
+
+        if (snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
+            return; // Game over
+        }
+
+        snake.unshift(newHead);
+    }
+
+    draw();
+    requestAnimationFrame(update);
+}
+
+requestAnimationFrame(update);
