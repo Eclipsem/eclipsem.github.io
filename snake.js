@@ -1,13 +1,16 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-const box = 20; // Size of each box in the grid
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const box = Math.floor(canvas.width / 40); 
 let snake = [];
-snake[0] = { x: 9 * box, y: 10 * box }; // Initial position of the snake
+snake[0] = { x: 10 * box, y: 10 * box }; 
 
 let food = {
-    x: Math.floor(Math.random() * 19 + 1) * box,
-    y: Math.floor(Math.random() * 19 + 3) * box
+    x: Math.floor(Math.random() * (canvas.width / box)) * box,
+    y: Math.floor(Math.random() * (canvas.height / box)) * box
 };
 
 let score = 0;
@@ -42,7 +45,7 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = (i === 0) ? "#FFFFFF" : "#808080"; // White head, grey body
+        ctx.fillStyle = (i === 0) ? "#FFFFFF" : "#808080"; 
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
 
         ctx.strokeStyle = "#2E2E2E";
@@ -63,8 +66,8 @@ function draw() {
     if (snakeX === food.x && snakeY === food.y) {
         score++;
         food = {
-            x: Math.floor(Math.random() * 19 + 1) * box,
-            y: Math.floor(Math.random() * 19 + 3) * box
+            x: Math.floor(Math.random() * (canvas.width / box)) * box,
+            y: Math.floor(Math.random() * (canvas.height / box)) * box
         };
     } else {
         snake.pop();
