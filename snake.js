@@ -13,20 +13,26 @@ let food = {
     y: Math.floor(Math.random() * (canvas.height / box)) * box
 };
 
-let score = 0;
 let direction;
+
+// Prevent default scrolling behavior
+window.addEventListener("keydown", function(event) {
+    if(["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "w", "a", "s", "d"].indexOf(event.key) > -1) {
+        event.preventDefault();
+    }
+}, false);
 
 // Control the snake
 document.addEventListener("keydown", setDirection);
 
 function setDirection(event) {
-    if (event.keyCode === 37 && direction !== "RIGHT") {
+    if ((event.key === "ArrowLeft" || event.key === "a") && direction !== "RIGHT") {
         direction = "LEFT";
-    } else if (event.keyCode === 38 && direction !== "DOWN") {
+    } else if ((event.key === "ArrowUp" || event.key === "w") && direction !== "DOWN") {
         direction = "UP";
-    } else if (event.keyCode === 39 && direction !== "LEFT") {
+    } else if ((event.key === "ArrowRight" || event.key === "d") && direction !== "LEFT") {
         direction = "RIGHT";
-    } else if (event.keyCode === 40 && direction !== "UP") {
+    } else if ((event.key === "ArrowDown" || event.key === "s") && direction !== "UP") {
         direction = "DOWN";
     }
 }
@@ -45,7 +51,7 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = (i === 0) ? "#FFFFFF" : "#808080"; 
+        ctx.fillStyle = "#FFFFFF"; // White body
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
 
         ctx.strokeStyle = "#2E2E2E";
@@ -64,7 +70,6 @@ function draw() {
     if (direction === "DOWN") snakeY += box;
 
     if (snakeX === food.x && snakeY === food.y) {
-        score++;
         food = {
             x: Math.floor(Math.random() * (canvas.width / box)) * box,
             y: Math.floor(Math.random() * (canvas.height / box)) * box
@@ -83,10 +88,6 @@ function draw() {
     }
 
     snake.unshift(newHead);
-
-    ctx.fillStyle = "white";
-    ctx.font = "45px Changa one";
-    ctx.fillText(score, 2 * box, 1.6 * box);
 }
 
 let game = setInterval(draw, 100);
