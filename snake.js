@@ -4,9 +4,9 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const box = Math.floor(canvas.width / 40); 
+const box = Math.floor(canvas.width / 40); // Size of each box in the grid
 let snake = [];
-snake[0] = { x: 10 * box, y: 10 * box }; 
+snake[0] = { x: 10 * box, y: 10 * box }; // Initial position of the snake
 
 let food = {
     x: Math.floor(Math.random() * (canvas.width / box)) * box,
@@ -90,4 +90,5 @@ function draw() {
     snake.unshift(newHead);
 }
 
-let game = setInterval(draw, 100);
+let fps = 60; // Set FPS to 60 for smoother animation
+let game = setInterval(draw, 1000 / fps);
